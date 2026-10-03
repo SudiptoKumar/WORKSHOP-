@@ -39,7 +39,7 @@
   </style>
 </head>
 <body>
-<script>window.BRAND=<?!= JSON.stringify(getPublicBranding()) ?>;window.AUTO_CERTIFICATE_ID=<?!= JSON.stringify(autoCertificateId || "") ?>;window.PUBLIC_VERIFY_BASE=<?!= JSON.stringify(publicVerificationBaseUrl || "") ?>;</script>
+<script>window.BRAND=<?!= JSON.stringify(getPublicBranding()) ?>;</script>
 <div class="wrap">
   <main class="card">
     <section class="hero">
@@ -72,7 +72,7 @@ function renderBrand(){
 function showResult(ok,data){
   const el=document.getElementById('result'); el.className='result '+(ok?'ok':'bad');
   if(!ok){el.innerHTML='<div class="status">Certificate not found</div><div>'+esc(data&&data.message?data.message:'No matching certificate was found.')+'</div>';}
-  else {el.innerHTML='<div class="status">'+(data.isTest?'✓ Test certificate valid':'✓ Certificate valid')+'</div><dl><dt>Certificate ID</dt><dd>'+esc(data.certificateId)+'</dd><dt>Name</dt><dd>'+esc(data.name)+'</dd><dt>Workshop</dt><dd>'+esc(data.workshopName)+'</dd><dt>Event ID</dt><dd>'+esc(data.eventId)+'</dd><dt>Issue Date</dt><dd>'+esc(data.issueDate)+'</dd></dl>';}
+  else {el.innerHTML='<div class="status">✓ Certificate valid</div><dl><dt>Certificate ID</dt><dd>'+esc(data.certificateId)+'</dd><dt>Name</dt><dd>'+esc(data.name)+'</dd><dt>Workshop</dt><dd>'+esc(data.workshopName)+'</dd><dt>Event ID</dt><dd>'+esc(data.eventId)+'</dd><dt>Issue Date</dt><dd>'+esc(data.issueDate)+'</dd></dl>';}
   el.style.display='block';
 }
 function verifyCertificate(){
@@ -81,13 +81,7 @@ function verifyCertificate(){
   google.script.run.withSuccessHandler(function(res){document.getElementById('loading').style.display='none';btn.disabled=false;showResult(!!(res&&res.valid),res||{});}).withFailureHandler(function(err){document.getElementById('loading').style.display='none';btn.disabled=false;showResult(false,{message:err&&err.message?err.message:String(err)});}).verifyCertificatePublic(id);
 }
 document.getElementById('certificateId').addEventListener('keydown',function(e){if(e.key==='Enter')verifyCertificate();});
-(function(){
-  renderBrand();
-  const q=new URLSearchParams(location.search);
-  const pathMatch=location.pathname.match(/\/verify\/([^/?#]+)$/i);
-  let id=window.AUTO_CERTIFICATE_ID||q.get('certificateId')||q.get('id')||((pathMatch&&pathMatch[1])?decodeURIComponent(pathMatch[1]):'');
-  if(id){document.getElementById('certificateId').value=id;verifyCertificate();}
-})();
+(function(){renderBrand();const q=new URLSearchParams(location.search);const id=q.get('certificateId')||q.get('id');if(id){document.getElementById('certificateId').value=id;verifyCertificate();}})();
 </script>
 </body>
 </html>
