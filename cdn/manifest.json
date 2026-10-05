@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "description": "WORKSHOP Automation static CDN assets",
+  "pathPrefix": "cdn",
+  "assets": {
+    "brand.financeClub": "brand/finance-club.jpg",
+    "social.facebook": "social/facebook.png",
+    "social.instagram": "social/instagram.png",
+    "social.linkedin": "social/linkedin.png",
+    "social.twitter": "social/twitter.png",
+    "social.whatsapp": "social/whatsapp.png"
+  }
+}
