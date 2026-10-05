@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "purpose": "WORKSHOP Automation static assets for GitHub + jsDelivr",
+  "basePath": "cdn",
+  "assets": {
+    "brand": {
+      "financeClub": "brand/finance-club.jpg"
+    },
+    "social": {
+      "facebook": "social/facebook.png",
+      "instagram": "social/instagram.png",
+      "linkedin": "social/linkedin.png",
+      "twitter": "social/twitter.png"
+    },
+    "icons": {
+      "certificate": "icons/certificate.png",
+      "registration": "icons/registration.png",
+      "calendar": "icons/calendar.png",
+      "business": "icons/business.png"
+    },
+    "integrations": {
+      "meet": "integrations/meet.svg",
+      "whatsapp": "integrations/whatsapp.svg"
+    }
+  }
+}
