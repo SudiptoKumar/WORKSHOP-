@@ -1,6 +1,6 @@
 # WORKSHOP Automation V2
 
-Complete workshop management system for Google Workspace — built by **Finance Club PSTU**.
+Complete workshop management system for Google Workspace — built by **Sudipto Kumar**.
 
 Handles the full workshop lifecycle: **creation → registration → reminders → attendance → certificates → verification**.
 
@@ -309,4 +309,4 @@ MIT License — feel free to use and modify.
 
 ## 👥 Credits
 
-Built by **Finance Club PSTU** — Learn · Grow · Connect · Create Impact
+Built by **Sudipto Kumar**
